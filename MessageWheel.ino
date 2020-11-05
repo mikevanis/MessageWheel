@@ -19,9 +19,11 @@ const int numOfSections = 8;
 bool isIncreasing;
 
 void setup() {
-  // put your setup code here, to run once:
   pinMode(buttonPin, INPUT_PULLUP);
-  button.setEventHandler(handleEvent);
+  ButtonConfig* buttonConfig = button.getButtonConfig();
+  buttonConfig->setEventHandler(handleEvent);
+  buttonConfig->setFeature(ButtonConfig::kFeatureClick);
+  
   ESP32PWM::allocateTimer(0);
   ESP32PWM::allocateTimer(1);
   ESP32PWM::allocateTimer(2);
