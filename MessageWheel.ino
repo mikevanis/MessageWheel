@@ -51,6 +51,8 @@ void advanceAngle() {
 
   // Write to servo.
   myservo.write(currentAngle);
+  Serial.print("New angle: ");
+  Serial.println(currentAngle);
 }
 
 void handleEvent(AceButton* /* button */, uint8_t eventType,
